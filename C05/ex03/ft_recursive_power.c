@@ -6,11 +6,11 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/24 14:20:37 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/07/25 09:48:16 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/08/02 10:41:19 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 
 int	ft_recursive_power(int nb, int power)
 {
