@@ -11,25 +11,27 @@
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
 int main(int ar, char **av)
 {
 	int i;
 	int j;
-
+	printf("ar - %d\n", ar);
 	if (ar == 4)
 	{		
 		j = 1;
 		i = 0;
-		while (av[j])
+		while (ar > j)
+		
+		while (av[j][i])
 		{
-			while (av[j][i])
-			{
-				write(1, &av[j][i], 1);					
-				i++;
-			}
-			j++;	
+			printf("i - %d : j - %d\n", i, j);
+			//write(1, &av[j][i], 1);					
+			i++;
 		}
+		j++;
+		
 		write(1, "\n", 1);
 	}
 	return (0);
