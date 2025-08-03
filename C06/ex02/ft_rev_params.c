@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tlaranje <tlaranje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/02 11:11:14 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/08/02 11:45:18 by tlaranje         ###   ########.fr       */
+/*   Created: 2025/08/03 12:41:31 by tlaranje          #+#    #+#             */
+/*   Updated: 2025/08/03 12:51:58 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int main(int ar, char **av)
 {
-    int i = 1; 
+    int i = ar - 1; 
 
-    while (i < ar)
+    while (i > 0)
     {
         int j = 0;
         while (av[i][j])
@@ -25,7 +25,7 @@ int main(int ar, char **av)
             j++;
         }
         write(1, "\n", 1);
-        i++;
+        i--;
     }
 
     return (0);
