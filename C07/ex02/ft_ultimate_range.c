@@ -6,11 +6,10 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 11:38:48 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/08/04 13:50:15 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/08/04 14:26:54 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 
