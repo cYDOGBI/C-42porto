@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
+/*   By: tlaranje <tlaranje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/02 11:11:14 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/08/02 11:45:18 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/08/04 01:01:30 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,17 @@
 
 int main(int ar, char **av)
 {
-    int i = 1; 
+    int i;
+    int l;
 
+    i = 1;
     while (i < ar)
     {
-        int j = 0;
-        while (av[i][j])
+        l = 0;
+        while (av[i][l])
         {
-            write(1, &av[i][j], 1);
-            j++;
+            write(1, &av[i][l], 1);
+            l++;
         }
         write(1, "\n", 1);
         i++;
@@ -30,3 +32,4 @@ int main(int ar, char **av)
 
     return (0);
 }
+

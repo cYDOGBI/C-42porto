@@ -6,27 +6,57 @@
 /*   By: tlaranje <tlaranje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 12:23:06 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/08/03 12:30:26 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/08/04 00:54:19 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int main(int ar, char **av)
+int ft_strlen(char *str)
 {
-    int i = 1; 
+    int len;
 
-    while (i < ar)
-    {
-        int j = 0;
-        while (av[i][j])
-        {
-            write(1, &av[i][j], 1);
+    len = 0;
+    while (str[len])
+        len++;
+    return (len);
+}
+
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
+}
+
+int main(int ar, char *av[]) {
+    int i;
+    int j;
+    char *temp;
+
+    i = 1;
+    while (i < ar - 1) {
+        j = i + 1;
+        while (j < ar) {
+            if (ft_strcmp(av[i], av[j]) > 0) {
+                temp = av[i];
+                av[i] = av[j];
+                av[j] = temp;
+            }
             j++;
         }
-        write(1, "\n", 1);
         i++;
     }
 
-    return (0);
+    i = 1;
+    while (i < ar) {
+        write(1, av[i], ft_strlen(av[i])); 
+        write(1, "\n", 1);                
+        i++;
+    }
+
+    return 0;
 }

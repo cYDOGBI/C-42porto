@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/03 12:41:31 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/08/03 12:51:58 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/08/03 22:51:53 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,17 @@
 
 int main(int ar, char **av)
 {
-    int i = ar - 1; 
+    int i; 
+    int l;
 
+    i = ar - 1;
     while (i > 0)
     {
-        int j = 0;
-        while (av[i][j])
+        l = 0;
+        while (av[i][l])
         {
-            write(1, &av[i][j], 1);
-            j++;
+            write(1, &av[i][l], 1);
+            l++;
         }
         write(1, "\n", 1);
         i--;
