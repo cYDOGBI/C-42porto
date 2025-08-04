@@ -1,31 +1,53 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/02 11:11:14 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/08/04 11:59:06 by tlaranje         ###   ########.fr       */
+/*   Created: 2025/08/04 11:38:45 by tlaranje          #+#    #+#             */
+/*   Updated: 2025/08/04 12:55:13 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-int	main(int ar, char **av)
+int	*ft_range(int min, int max)
 {
+	int	*ptr;
 	int	i;
-	int	len;
 
-	i = 1;
-	while (i < ar)
+	if (min >= max)
+		return (NULL);
+	ptr = malloc((max - min) * sizeof(int));
+	i = 0;
+	while (min < max)
 	{
-		len = 0;
-		while (av[i][len])
-			len++;
-		write(1, av[i], len);
-		write(1, "\n", 1);
+		ptr[i] = min;
+		i++;
+		min++;
+	}
+	return (ptr);
+}
+
+int	main(void)
+{
+	int	min;
+	int	max;
+	int	*range;
+	int	i;
+
+	min = 0;
+	max = 20;
+	range = ft_range(min, max);
+	i = 0;
+	while (i < max)
+	{
+		printf("%d ", range[i]);
 		i++;
 	}
+	printf("\n");
 	return (0);
 }

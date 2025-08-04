@@ -1,31 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/08/02 11:11:14 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/08/04 11:59:06 by tlaranje         ###   ########.fr       */
+/*   Created: 2025/08/04 11:38:41 by tlaranje          #+#    #+#             */
+/*   Updated: 2025/08/04 12:23:54 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdio.h>
 
-int	main(int ar, char **av)
+int	ft_strlen(char *str)
 {
-	int	i;
 	int	len;
 
-	i = 1;
-	while (i < ar)
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
+}
+
+char	*ft_strdup(char *src)
+{
+	char	*ptr;
+	int		i;
+
+	ptr = malloc(ft_strlen(src) + 1);
+	i = 0;
+	while (src[i])
 	{
-		len = 0;
-		while (av[i][len])
-			len++;
-		write(1, av[i], len);
-		write(1, "\n", 1);
+		ptr[i] = src[i];
 		i++;
 	}
+	ptr[i] = '\0';
+	return (ptr);
+}
+
+int	main(void)
+{
+	char	src[20];
+
+	strcpy(src, "Hello, World!");
+	printf("strdup: %s\nft_strdup: %s\n", strdup(src), ft_strdup(src));
 	return (0);
 }
