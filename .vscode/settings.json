@@ -3,6 +3,8 @@
 		"string.h": "c",
 		"sstream": "c",
 		"stdlib.h": "c",
-		"stdio.h": "c"
+		"stdio.h": "c",
+		"type_traits": "c",
+		"random": "c"
 	}
 }
