@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 09:24:58 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/07/29 09:25:02 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/08/05 16:12:36 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	ft_putnbr_base(int nbr, char *base)
 	return ;
 }
 
-/* int	main(void)
+int	main(void)
 {
 	ft_putnbr_base(42, "0123456789");
 	ft_write('\n');
@@ -85,4 +85,4 @@ void	ft_putnbr_base(int nbr, char *base)
 	ft_putnbr_base(42, "poneyvif");
 	ft_write('\n');
 	return (0);
-} */
+}

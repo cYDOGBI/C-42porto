@@ -6,45 +6,51 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 11:38:48 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/08/04 14:26:54 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/08/05 17:25:31 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
 
-int ft_ultimate_range(int **range, int min, int max)
+int	ft_ultimate_range(int **range, int min, int max)
 {
 	int	i;
+	int	size;
 
 	if (min >= max)
-		return (-1);
-	*range = malloc((max - min) * sizeof(int));
-	i = 0;
-	while (min < max)
 	{
-		(*range)[i] = min;
-		i++;
-		min++;
+		*range = NULL;
+		return (0);
 	}
-	return (**range);
+	size = max - min;
+	*range = malloc(size * sizeof(int));
+	if (!*range)
+		return (-1);
+	i = 0;
+	while (i < size)
+		(*range)[i++] = min++;
+	return (size);
 }
 
 int	main(void)
 {
-	int	r;
+	int	min;
 	int	max;
 	int	*range;
 	int	i;
+	int	size;
 
-	max = 20;
-	r = ft_ultimate_range(&range, 0, max);
+	min = 0;
+	max = 10;
 	i = 0;
-	while (i < max)
+	size = ft_ultimate_range(&range, min, max);
+	while (i < size)
 	{
 		printf("%d ", range[i]);
 		i++;
 	}
 	printf("\n");
+	free(range);
 	return (0);
 }

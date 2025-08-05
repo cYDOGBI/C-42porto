@@ -6,7 +6,7 @@
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/04 11:38:45 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/08/04 14:27:00 by tlaranje         ###   ########.fr       */
+/*   Updated: 2025/08/05 12:37:44 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,7 @@ int	*ft_range(int min, int max)
 	ptr = malloc((max - min) * sizeof(int));
 	i = 0;
 	while (min < max)
-	{
-		ptr[i] = min;
-		i++;
-		min++;
-	}
+		ptr[i++] = min++;
 	return (ptr);
 }
 
@@ -39,14 +35,15 @@ int	main(void)
 	int	i;
 
 	min = 0;
-	max = 20;
+	max = 10;
 	range = ft_range(min, max);
 	i = 0;
-	while (i < max)
+	while (i < (max - min))
 	{
 		printf("%d ", range[i]);
 		i++;
 	}
 	printf("\n");
+	free(range);
 	return (0);
 }
