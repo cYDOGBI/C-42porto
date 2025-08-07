@@ -41,7 +41,7 @@ alias r='./a.out'
 ra() {
   ./a.out "$@"
 }
-alias cwr='cw && clear && ./a.out'
+alias cwr='cw && clear && ./a.out && rm a.out'
 alias n="norminette"
 alias check='valgrind ./a.out'
 alias g='gdb ./a.out'
