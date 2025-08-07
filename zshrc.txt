@@ -42,8 +42,14 @@ ra() {
   ./a.out "$@"
 }
 alias cwr='cw && clear && ./a.out && rm a.out'
+<<<<<<< HEAD
 alias n="clear && norminette"
 alias check='valgrind ./a.out'
+=======
+alias n="norminette"
+alias check='valgrind ./a.out'
+alias g='gdb ./a.out'
+>>>>>>> d06a422858e6baa8503ff83b15424a10bda4f5fe
 alias .='cd'
 alias ..='cd ..'
 d() {
