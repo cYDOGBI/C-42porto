@@ -41,12 +41,42 @@ alias r='./a.out'
 ra() {
   ./a.out "$@"
 }
-alias cwr='cw && clear && ./a.out'
-alias n="norminette"             			
-alias check='valgrind ./a.out'   			
-alias g='gdb ./a.out'            		
+alias cwr='cw && clear && ./a.out && rm a.out'
+alias n="norminette"
+alias check='valgrind ./a.out'
+alias g='gdb ./a.out'
 alias .='cd'
 alias ..='cd ..'
-alias cls='clear && ls'   
-alias c='clear'  
-alias s='source ~/.zshrc'  
+alias cls='clear && ls'
+alias c='clear'
+alias s='source ~/.zshrc'
+newc() {
+    if [[ -z "$1" ]]; then
+        echo "🚫 Por favor, forneça o nome do ficheiro. Ex: newc programa"
+        return 1
+    fi
+
+    filename="$1.c"
+    filebase="$(basename "$filename")"
+
+    {
+        echo "#include <unistd.h>"
+        echo "#include <stdio.h>"
+        echo "#include <string.h>"
+        echo "#include <stdlib.h>"
+        echo ""
+       	echo "void	${filename%.c}()"
+        echo "{"
+        echo ""
+        echo "}"
+        echo ""
+        echo "int	main(void)"
+		echo "{"
+		echo ""
+        echo "	return (0);"
+        echo "}"
+    } > "$filename"
+
+    echo "✅ Ficheiro '$filename' criado com header da 42."
+}
+
