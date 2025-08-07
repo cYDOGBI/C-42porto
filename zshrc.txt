@@ -65,6 +65,11 @@ newc() {
         echo "#include <string.h>"
         echo "#include <stdlib.h>"
         echo ""
+       	echo "void	${filename%.c}()"
+        echo "{"
+        echo ""
+        echo "}"
+        echo ""
         echo "int	main(void)"
 		echo "{"
 		echo ""
@@ -74,3 +79,4 @@ newc() {
 
     echo "✅ Ficheiro '$filename' criado com header da 42."
 }
+
