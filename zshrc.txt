@@ -36,6 +36,17 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # aliases
-alias cw="cc -Wall -Wextra -Werror"
-alias n="norminette"
-alias c="clear"
+alias cw='cc -Wall -Wextra -Werror *.c'
+alias r='./a.out'
+ra() {
+  ./a.out "$@"
+}
+alias cwr='cw && clear && ./a.out'
+alias n="norminette"             			
+alias check='valgrind ./a.out'   			
+alias g='gdb ./a.out'            		
+alias .='cd'
+alias ..='cd ..'
+alias cls='clear && ls'   
+alias c='clear'  
+alias s='source ~/.zshrc'  
