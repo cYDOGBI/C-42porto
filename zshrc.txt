@@ -76,7 +76,4 @@ newc() {
         echo "	return (0);"
         echo "}"
     } > "$filename"
-
-    echo "✅ Ficheiro '$filename' criado com header da 42."
 }
-
