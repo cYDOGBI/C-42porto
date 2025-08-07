@@ -42,11 +42,13 @@ ra() {
   ./a.out "$@"
 }
 alias cwr='cw && clear && ./a.out && rm a.out'
-alias n="norminette"
+alias n="clear && norminette"
 alias check='valgrind ./a.out'
-alias g='gdb ./a.out'
 alias .='cd'
 alias ..='cd ..'
+d() {
+  cd ../"$1"
+}
 alias cls='clear && ls'
 alias c='clear'
 alias s='source ~/.zshrc'
@@ -65,7 +67,7 @@ newc() {
         echo "#include <string.h>"
         echo "#include <stdlib.h>"
         echo ""
-       	echo "void	${filename%.c}()"
+       	echo "void	${filename%.c}(void)"
         echo "{"
         echo ""
         echo "}"
@@ -76,7 +78,4 @@ newc() {
         echo "	return (0);"
         echo "}"
     } > "$filename"
-
-    echo "✅ Ficheiro '$filename' criado com header da 42."
 }
-
