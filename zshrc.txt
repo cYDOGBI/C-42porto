@@ -65,7 +65,7 @@ newc() {
         echo "#include <string.h>"
         echo "#include <stdlib.h>"
         echo ""
-       	echo "void	${filename%.c}()"
+       	echo "void	${filename%.c}(void)"
         echo "{"
         echo ""
         echo "}"
