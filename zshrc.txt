@@ -47,6 +47,9 @@ alias check='valgrind ./a.out'
 alias g='gdb ./a.out'
 alias .='cd'
 alias ..='cd ..'
+d() {
+  cd ../"$1"
+}
 alias cls='clear && ls'
 alias c='clear'
 alias s='source ~/.zshrc'
