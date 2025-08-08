@@ -29,7 +29,7 @@ int	ft_total_len(int size, char **strs, char *sep)
 	int	i;
 
 	total_len = 0;
-	total_len += ft_strlen(sep);
+	total_len += ft_strlen(sep) * (size - 1);
 	i = 0;
 	while (i < size)
 	{
