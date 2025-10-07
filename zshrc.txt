@@ -1,9 +1,7 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
 PROMPT='%F{green}%~ $>%f '
 
 # Uncomment the following line to enable command auto-correction.
@@ -36,23 +34,20 @@ zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 
 # aliases
+# Basic Commands
 alias c='clear'
+alias n="clear && norminette"
+alias s='source ~/.zshrc'
+
+# Advanced Commands
 alias cw='cc -Wall -Wextra -Werror *.c'
-alias r='c && ./a.out'
+alias r='c && cw && ./a.out && rm a.out'
 ra() {
   c
+  cw
   ./a.out "$@"
+  rm a.out
 }
-alias cwr='cw && clear && ./a.out && rm a.out'
-alias n="clear && norminette"
-alias check='valgrind ./a.out'
-alias .='cd'
-alias ..='cd ..'
-d() {
-  cd ../"$1"
-}
-alias cls='clear && ls'
-alias s='source ~/.zshrc'
 newc() {
     if [[ -z "$1" ]]; then
         echo "🚫 Por favor, forneça o nome do ficheiro. Ex: newc programa"
@@ -68,15 +63,22 @@ newc() {
         echo "#include <string.h>"
         echo "#include <stdlib.h>"
         echo ""
-       	echo "void	${filename%.c}(void)"
+        echo "void  ${filename%.c}(void)"
         echo "{"
         echo ""
         echo "}"
         echo ""
-        echo "int	main(void)"
-		echo "{"
-		echo ""
-        echo "	return (0);"
+        echo "int   main(void)"
+        echo "{"
+        echo ""
+        echo "  return (0);"
         echo "}"
     } > "$filename"
+
+    # Adiciona o cabeçalho da 42 com o comando Stdheader
+    vim +"Stdheader" +"wq" "$filename"
 }
+
+
+#Others
+#alias check='valgrind ./a.out'
