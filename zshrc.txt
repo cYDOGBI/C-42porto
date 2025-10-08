@@ -42,18 +42,15 @@ alias s='source ~/.zshrc'
 # Advanced Commands
 alias cw='cc -Wall -Wextra -Werror *.c'
 alias r='c && cw && ./a.out && rm a.out'
+
 ra() {
   c
   cw
   ./a.out "$@"
   rm a.out
 }
-newc() {
-    if [[ -z "$1" ]]; then
-        echo "🚫 Por favor, forneça o nome do ficheiro. Ex: newc programa"
-        return 1
-    fi
 
+newc() {
     filename="$1.c"
     filebase="$(basename "$filename")"
 
@@ -63,22 +60,31 @@ newc() {
         echo "#include <string.h>"
         echo "#include <stdlib.h>"
         echo ""
-        echo "void  ${filename%.c}(void)"
+        echo "void	${filename%.c}(void)"
         echo "{"
         echo ""
         echo "}"
         echo ""
-        echo "int   main(void)"
+        echo "int	main(void)"
         echo "{"
         echo ""
-        echo "  return (0);"
+        echo "	return (0);"
         echo "}"
     } > "$filename"
-
-    # Adiciona o cabeçalho da 42 com o comando Stdheader
-    vim +"Stdheader" +"wq" "$filename"
 }
 
+newh() {
+    filename="$1.h"
+    filebase="$(basename "$filename" .h)"
+    macro_guard="$(echo "$filebase"_H | tr '[:lower:]' '[:upper:]')"
+
+    {
+        echo "#ifndef $macro_guard"
+        echo "# define $macro_guard"
+        echo ""
+        echo "#endif"
+    } > "$filename"
+}
 
 #Others
 #alias check='valgrind ./a.out'
