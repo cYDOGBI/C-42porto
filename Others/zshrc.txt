@@ -40,6 +40,7 @@ alias n="clear && norminette"
 alias s='source ~/.zshrc'
 
 # Advanced Commands
+alias cc='cc -Wall -Wextra -Werror'
 alias cw='cc -Wall -Wextra -Werror *.c'
 alias r='c && cw && ./a.out && rm a.out'
 
@@ -51,27 +52,33 @@ ra() {
 }
 
 newc() {
-    filename="$1.c"
-    filebase="$(basename "$filename")"
+    for arg in "$@"; do
+        filename="${arg}.c"
+        filebase="$(basename "$filename")"
+        funcname="${arg}"
 
-    {
-        echo "#include <unistd.h>"
-        echo "#include <stdio.h>"
-        echo "#include <string.h>"
-        echo "#include <stdlib.h>"
-        echo ""
-        echo "void	${filename%.c}(void)"
-        echo "{"
-        echo ""
-        echo "}"
-        echo ""
-        echo "int	main(void)"
-        echo "{"
-        echo ""
-        echo "	return (0);"
-        echo "}"
-    } > "$filename"
+        {
+            echo "#include <unistd.h>"
+            echo "#include <stdio.h>"
+            echo "#include <string.h>"
+            echo "#include <stdlib.h>"
+            echo ""
+            echo "void ${funcname}(void)"
+            echo "{"
+            echo ""
+            echo "}"
+            echo ""
+            echo "int main(void)"
+            echo "{"
+            echo ""
+            echo "    return (0);"
+            echo "}"
+        } > "$filename"
+
+        echo "Criado: $filename"
+    done
 }
+
 
 newh() {
     filename="$1.h"
