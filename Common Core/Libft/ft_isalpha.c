@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tlaranje <tlaranje@student.42porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/10 11:08:44 by tlaranje          #+#    #+#             */
-/*   Updated: 2025/10/10 17:33:33 by tlaranje         ###   ########.fr       */
+/*   Created: 2025/10/10 17:04:58 by tlaranje          #+#    #+#             */
+/*   Updated: 2025/10/10 17:35:00 by tlaranje         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdio.h>
 
-void	ft_bzero(void *str, size_t size)
+int	ft_isalpha(int c)
 {
-	char	*str_ptr;
-
-	str_ptr = str;
-	while (size--)
-		*str_ptr++ = '\0';
+	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }
 
 int	main(void)
 {
-	char	buffer[100];
+	char	*str;
 	int		i;
+	int		alphabet;
 
+	str = "13abc13";
 	i = 0;
-	ft_bzero(buffer, 100);
-	while (buffer[i] == '\0')
+	alphabet = 0;
+	while (str[i])
 	{
-		printf("%d - 0\n", i);
+		if (ft_isalpha(str[i]) != 0)
+			alphabet++;
 		i++;
 	}
+	printf("Letters = %d\n", alphabet);
 	return (0);
 }

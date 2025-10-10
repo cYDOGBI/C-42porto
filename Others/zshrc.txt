@@ -51,6 +51,18 @@ ra() {
   rm a.out
 }
 
+rf() {
+  c && cc -Wall -Wextra -Werror "$1" -o a.out && ./a.out && rm a.out
+}
+
+rfa() {
+  c
+  cc -Wall -Wextra -Werror "$1" -o a.out || return 1
+  shift
+  ./a.out "$@"
+  rm a.out
+}
+
 newc() {
     for arg in "$@"; do
         filename="${arg}.c"

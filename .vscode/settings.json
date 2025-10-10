@@ -1,0 +1,12 @@
+{
+	"files.associations": {
+		"array": "c",
+		"string_view": "c",
+		"format": "c",
+		"initializer_list": "c",
+		"span": "c",
+		"stdio.h": "c",
+		"charconv": "c",
+		"string.h": "c"
+	}
+}
